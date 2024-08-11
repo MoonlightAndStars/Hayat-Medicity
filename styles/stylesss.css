@@ -1,0 +1,821 @@
+/* General styles */
+:root {
+  --green: #16a085;
+  --black: #444;
+  --light-color: #777;
+  --box-shadow: 0.5rem 0.5rem 0 rgba(22, 160, 133, 0.2);
+  --text-shadow: 0.4rem 0.4rem 0 rgba(0, 0, 0, 0.2);
+  --border: 0.2rem solid var(--green);
+  --section-bg: #f5f5f5;
+}
+
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-transform: capitalize;
+  transition: all 0.2s ease-in;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-padding-top: 7rem;
+  scroll-behavior: smooth;
+}
+
+section {
+  padding: 2rem 9%;
+}
+
+section:nth-child(even) {
+  background: #fff;
+}
+
+.heading {
+  text-align: center;
+  padding-bottom: 2rem;
+  text-shadow: var(--text-shadow);
+  text-transform: uppercase;
+  color: var(--black);
+  font-size: 5rem;
+  letter-spacing: 0.4rem;
+}
+
+.heading span {
+  text-transform: uppercase;
+  color: var(--green);
+}
+
+
+.home .content h3 span {
+  
+}
+.btn {
+  margin-top: 1rem;
+  padding: 0.5rem;
+  padding-left: 1rem;
+  border: var(--border);
+  border-radius: 0.5rem;
+  box-shadow: var(--box-shadow);
+  color: var(--green);
+  cursor: pointer;
+  font-size: 1.7rem;
+}
+
+.btn span {
+  padding: 0.7rem 1rem;
+  border-radius: 0.5rem;
+  background: var(--green);
+  color: #fff;
+  margin-left: 0.5rem;
+}
+
+.btn:hover {
+  background: var(--green);
+  color: #fff;
+}
+
+.btn:hover span {
+  background: #fff;
+  margin-left: 1rem;
+}
+
+.hospital-header {
+  padding: 2rem 9%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: #fff;
+  text-align: center;
+}
+
+.hospital-header .logo {
+  display: flex;
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--black);
+
+  text-decoration: none;
+  justify-content: center;
+}
+
+.hospital-header .logo i {
+  color: var(--green);
+  font-size: 2.5rem;
+  padding-right: 1rem;
+}
+
+.hospital-header .navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 1rem;
+}
+
+.hospital-header .navbar a {
+  font-size: 1rem;
+  font-weight: 600;
+  color: black;
+  margin-left: 2rem;
+  font-size: 1.6rem;
+  text-decoration: none;
+}
+
+.hospital-header .navbar a:hover {
+  color: var(--green);
+}
+#menu-button {
+  font-size: 1.3rem;
+  border-radius: 0.5rem;
+  background: #eee;
+  color: var(--green);
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  display: none; /* Initially hidden */
+}
+
+/* Mobile menu overlay styles */
+.navbar-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.9); /* Dark overlay for contrast */
+  color: #fff;
+  padding: 2rem;
+  transition: transform 0.3s ease;
+  transform: translateY(-100%); /* Initially hide the menu */
+  display: flex;
+  flex-direction: column;
+  z-index: 999; /* Ensure it is above other content */
+}
+
+.navbar-menu.active {
+  transform: translateY(0);
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -o-transform: translateY(0);
+}
+
+.navbar-menu a {
+  font-size: 1.2rem;
+  margin: 1rem 0;
+  padding: 0.5rem;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Content shift on menu activation */
+.home {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-top: 8rem;
+  gap: 1.5rem;
+  overflow-x: hidden;
+  transition: margin-top 0.3s ease;
+ /* Smooth transition for content shift */
+}
+
+.home.menu-active {
+  margin-top: 20rem; /* Adjust based on menu height */
+}
+
+.home .image,
+.home .content {
+  flex: 1;
+  max-width: 48%;
+}
+
+.home .image img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  background-color: var(--section-bg);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.home .content h3 {
+  font-size: 2.5rem;
+  color: var(--black);
+  line-height: 1.8;
+  text-shadow: var(--text-shadow);
+}
+
+.home .content p {
+  font-size: 1.2rem;
+  color: var(--light-color);
+  line-height: 1.8;
+  padding: 1rem 0;
+}
+
+.icons-container {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.icons-container .icons {
+  border: var(--border);
+  box-shadow: var(--box-shadow);
+  border-radius: 0.5rem;
+  text-align: center;
+  padding: 2.5rem;
+}
+
+.icons-container .icons i {
+  font-size: 4.5rem;
+  color: var(--green);
+  padding-bottom: 0.7rem;
+}
+
+.icons-container .icons h3 {
+  font-size: 4.5rem;
+  color: var(--black);
+  padding: 0.5rem;
+  text-shadow: var(--text-shadow);
+}
+
+.icons-container .icons p {
+  font-size: 1.7rem;
+  color: var(--light-color);
+  padding: 0.5rem;
+  text-shadow: var(--text-shadow);
+}
+
+.services .box-container {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr));
+}
+
+.services .box-container .service {
+  background: #fff;
+  border-radius: 0.5rem;
+  box-shadow: var(--box-shadow);
+  border: var(--border);
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+  /* Space between content  */
+  height: 100%; 
+  /* Make the service divs take up the full height */ 
+}
+
+.services .box-container .service i {
+  color: var(--green);
+  font-size: 2rem;
+  padding-bottom: 0.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.services .box-container .service h3 {
+  color: var(--black);
+  font-size: 1.5rem;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
+ }
+
+.services .box-container .service p { 
+  color: var(--light-color);
+  font-size: 1.3rem;
+  line-height: 1.5;
+   flex-grow: 1; 
+   /* Allows the paragraph to grow and push the button down */
+}
+
+.services .box-container .service .btn { 
+  display: block;
+  text-align: center;
+  margin-top: 1rem; 
+  /* Ensure consistent spacing from content */
+}
+
+
+
+/* About Us Page Styles */
+
+.about-us {
+  display: flex;
+  align-items: center;
+  padding: 4rem 9%;
+  background-color: var(--section-bg);
+}
+
+.about-content {
+  flex: 1;
+  max-width: 50%;
+  padding-right: 2rem;
+}
+
+.about-content h1 {
+  font-size: 3rem;
+  color: var(--black);
+  margin-bottom: 1.5rem;
+}
+
+.about-content p {
+  font-size: 1.6rem;
+  color: var(--light-color);
+  line-height: 1.8;
+}
+
+.about-image {
+  flex: 1;
+  max-width: 50%;
+}
+
+.about-image img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+}
+
+/* Mission, Vision, Values Section */
+
+.mission,
+.vision,
+.values {
+  padding: 4rem 9%;
+  text-align: center;
+  background-color: #fff;
+}
+
+.mission h2,
+.vision h2,
+.values h2 {
+  font-size: 3rem;
+  color: var(--black);
+  margin-bottom: 1.5rem;
+}
+
+.mission p,
+.vision p,
+.values p {
+  font-size: 1.6rem;
+  color: var(--light-color);
+  line-height: 1.8;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.values-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.value {
+  flex: 1;
+  min-width: 250px;
+  max-width: 30%;
+  text-align: center;
+  padding: 2rem;
+  border: var(--border);
+  box-shadow: var(--box-shadow);
+  border-radius: 0.5rem;
+  background-color: var(--section-bg);
+}
+
+.value i {
+  font-size: 3rem;
+  color: var(--green);
+  margin-bottom: 1rem;
+}
+
+.value h3 {
+  font-size: 2rem;
+  color: var(--black);
+  margin-bottom: 1rem;
+}
+
+.value p {
+  font-size: 1.4rem;
+  color: var(--light-color);
+  line-height: 1.6;
+}
+
+/* Our Team Section */
+
+.team {
+  padding: 4rem 9%;
+  background-color: var(--section-bg);
+}
+
+.team h2 {
+  font-size: 3rem;
+  color: var(--black);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.team p {
+  font-size: 1.6rem;
+  color: var(--light-color);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.team-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.team-member {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between; /* Ensure content and social links are spaced apart */
+  flex: 1;
+  min-width: 20rem;
+  max-width: 25rem;
+  text-align: center;
+  padding: 1rem;
+  box-shadow: var(--box-shadow);
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.team-member img {
+  width: 50%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  box-shadow: var(--box-shadow);
+  margin-bottom: 1rem;
+}
+
+.team-member h3 {
+  font-size: 2rem;
+  color: var(--black);
+  margin-bottom: 0.5rem;
+}
+
+.team-member p {
+  font-size: 1.3rem;
+  color: var(--light-color);
+  margin-bottom: 0.5rem;
+}
+
+.team-member .social-media {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: auto; /* Push social media links to the bottom */
+}
+
+.team-member .social-media a {
+  height: 2rem;
+  width: 2rem;
+  line-height: 1.5rem;
+  font-size: 1rem;
+  color: var(--green);
+  border-radius: 0.5rem;
+  border: var(--border);
+  transition: transform 1s, color 0.3s;
+  -webkit-transition: transform 1s, color 0.3s;
+  -moz-transition: transform 1s, color 0.3s;
+  -ms-transition: transform 1s, color 0.3s;
+  -o-transition: transform 1s, color 0.3s;
+}
+
+.team-member .social-media a:hover {
+  transform: rotateY(360deg);
+  color: var(--darker-color);
+  box-shadow: 0 0 5px var(--darker-color);
+}
+
+/* Appointment Booking */
+
+.appointments .row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.appointments .row img {
+  flex: 1 1 45rem;
+}
+
+.appointments .row form {
+  flex: 1 1 45rem;
+  background: #fff;
+  border: var(--border);
+  box-shadow: var(--box-shadow);
+  text-align: center;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+}
+
+form {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+label {
+  display: block;
+  margin: 0.5rem 0;
+  font-weight: bold;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 0.5rem;
+  margin: 0.5rem 0 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+button {
+  background-color: #4caf50;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.checkbox-container {
+  margin: 1rem 0;
+}
+
+.checkbox-container input[type="checkbox"] {
+  margin-right: 0.5rem;
+}
+
+/* Patient Reviews Section */
+
+.reviews .reviews-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr));
+  gap: 2rem;
+}
+
+.reviews p {
+  font-size: 2.5rem;
+  color: var(--light-color);
+  margin-bottom: 1rem;
+}
+
+.reviews .review {
+  border: var(--border);
+  box-shadow: var(--box-shadow);
+  border-radius: 0.5rem;
+  padding: 2.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.reviews .review::before {
+  content: "";
+  position: absolute;
+  top: -4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--green);
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  height: 25rem;
+  width: 120%;
+  z-index: -1;
+}
+
+.reviews .review img {
+  height: 10rem;
+  width: 10rem;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 0.5rem solid #fff;
+}
+
+.reviews .review h3 {
+  color: #fff;
+  font-size: 2.2rem;
+  padding: 0.5rem 0;
+}
+
+.reviews .review .star {
+  color: #080808fb;
+  font-size: 1.5rem;
+  scale: 1.4;
+}
+
+.reviews .review .text {
+  color: var(--light-color);
+  line-height: 1.8rem;
+  font-size: 1.6rem;
+  padding-top: 4rem;
+}
+
+/* blog section */
+
+.blogs .box-container {
+  display: grid;
+  gap: 1.5rem; /* Controls space between the boxes */
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr)); /* Adjusts columns based on screen size */
+  margin: 0 auto; /* Centers the content */
+  padding: 0 1rem; /* Adds padding to the container */
+}
+
+.blogs .box {
+  background: #fff;
+  border-radius: 0.5rem;
+  box-shadow: var(--box-shadow);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.blogs .box .image img {
+  width: 100%; /* Ensures image takes up full width */
+  height: auto;
+  max-height: 200px; /* Limits the height of the image */
+  object-fit: cover; /* Keeps the aspect ratio */
+}
+
+.blogs .box .content {
+  padding: 1rem;
+  flex-grow: 1; /* Makes sure content fills available space */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.blogs .box .icon {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  font-size: 0.9rem; /* Adjusts the font size of icons */
+}
+
+.blogs .box h3 {
+  font-size: 1.2rem; /* Reduces font size of the heading */
+  margin-bottom: 0.5rem;
+}
+
+.blogs .box .blog-content {
+  display: none; /* Hidden by default */
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-top: 1rem;
+}
+
+.blogs .box .toggle-content {
+  background-color: var(--green);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  margin-top: auto; /* Aligns the button at the bottom */
+}
+
+.blogs .box .toggle-content.active + .blog-content {
+  display: block; /* Shows the content when the button is clicked */
+}
+
+/* Media queries */
+
+/* General tablet styles */
+@media (max-width: 991px) {
+  html {
+    font-size: 55%;
+  }
+
+  .hospital-header {
+    padding: 2rem;
+  }
+
+  section {
+    padding: 2rem;
+  }
+
+  .home .content h3 {
+    font-size: 2.2rem;
+  }
+
+  .home .content p {
+    font-size: 1rem;
+  }
+}
+
+/* Adjustments for small devices */
+@media (max-width: 768px) {
+  #menu-button {
+    display: initial; /* Show menu button */
+  }
+
+  .hospital-header .navbar {
+    display: none; /* Hide desktop navbar */
+  }
+
+  .home {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .home .image,
+  .home .content {
+    max-width: 100%;
+  }
+
+  .home .image img {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: var(--section-bg);
+  }
+
+  .home .content h3 {
+    font-size: 2rem;
+  }
+
+  .home .content p {
+    font-size: 1rem;
+  }
+}
+
+/* iPhone and smaller devices */
+@media (max-width: 450px) {
+  html {
+    font-size: 50%;
+  }
+
+  .home .content h3 {
+    font-size: 1.8rem;
+  }
+
+  .home .image img {
+    width: 100%;
+    aspect-ratio: 1;
+  }
+
+  .home .content p {
+    font-size: 0.9rem;
+  }
+
+  .hospital-header {
+    padding: 1.5rem;
+  }
+
+  .btn {
+    font-size: 1.5rem;
+    padding: 0.5rem;
+  }
+
+  .btn span {
+    font-size: 1.2rem;
+    padding: 0.5rem;
+  }
+
+  .icons-container .icons h3 {
+    font-size: 3.5rem;
+  }
+
+  .icons-container .icons p {
+    font-size: 1.5rem;
+  }
+}

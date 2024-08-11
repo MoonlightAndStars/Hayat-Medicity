@@ -1,0 +1,254 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+  --green: #16a085;
+  --black: #444;
+  --light-color: #777;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: "Poppins", sans-serif;
+  outline: none;
+  border: none;
+  text-transform: capitalize;
+  transition: all 0.5s ease;
+  text-decoration: none;
+}
+
+html {
+  size: 62.5%;
+}
+
+section {
+  padding: 2rem 9%;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  padding-left: 1rem;
+  border: grey;
+  border-radius: 0.5rem;
+  box-shadow: #16a085;
+  color: green;
+  cursor: pointer;
+  font-size : 1.7rem;
+}
+
+.hospital-header {
+  height: 2.2rem;
+  width: 100%;
+  padding: 2rem 9%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.3);
+  background-color: #dee1eb;
+}
+
+.navbar {
+  display: flex;
+  gap: 2rem;
+  /* text-shadow: 0 0 0.3rem rgba(0, 2, 3, 0.932); */
+}
+
+.hospital-header > a {
+  color: black;
+  font-weight: 600px;
+  animation: textcolor 1.5s infinite alternate;
+}
+
+@keyframes textcolor {
+  0% {
+    color: rgba(228, 45, 45, 0.911);
+    text-transform: uppercase;
+    font-weight: 800;
+  }
+  50% {
+    color: #4aa190d2;
+    font-weight: 600;
+  }
+  100% {
+    color: rgba(71, 71, 214, 0.829);
+    text-transform: uppercase;
+    font-weight: 800;
+  }
+}
+
+.navbar > a:nth-child(4) {
+  text-shadow: 0 0 1rem rgba(77, 24, 224, 0.911);
+  color: rgb(10, 223, 92);
+  font-weight: bold;
+  animation: bulging 1s ease alternate-reverse infinite;
+}
+
+@keyframes bulging {
+  0% {
+    color: rgba(7, 240, 96, 0.788);
+  }
+  50% {
+    color: black;
+  }
+  100% {
+    color: red;
+  }
+}
+
+.hospital-header .logo {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.hospital-header .logo i {
+  animation: threecolor 3s ease-in-out alternate infinite;
+}
+
+@keyframes threecolor {
+  0% {
+    columns: red;
+    filter: drop-shadow(0 0 0.3rem rgba(5, 0, 0, 0.856));
+    transform: scale(1.2);
+  }
+  50% {
+    color: blue;
+        filter: drop-shadow(0 0 0.3rem rgba(0, 0, 0, 0.856));
+        transform: scale(1.5);
+  }
+  100% {
+    color: green;
+        filter: drop-shadow(0 0 0.1rem rgb(0, 0, 0));
+        transform: scale(1);
+  }
+}
+
+.hospital-header .navbar a {
+  color: var(--light-color);
+    transition: all 0.3s linear;
+}
+
+.hospital-header .navbar a:hover{
+
+    color: var(--green);
+  font-weight: 600;
+}
+
+#menu-button {
+  /* font-size: 1rem; */
+  border-radius: 0.5rem;
+  background: #eeeeeee5;
+  color: var(--green);
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  display: none;
+}
+
+.home {
+  display: flex;
+  align-items: center;
+  margin: 0.5rem auto;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding-top: 10rem;
+}
+
+.home .image {
+  position: absolute;
+  left: 1rem; 
+ top: 5rem;
+  filter: drop-shadow(0 0 0.2 white);
+  box-shadow: 0 0 0.1 #777;
+}
+
+.home .image img {
+  /* width: 100%; */
+  height: 90%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.home .content {
+  position: absolute; 
+  top: 12rem;
+  left: 35rem;
+  padding-right: 2rem; 
+  height: 90%;
+}
+
+.home .content h3 {
+  font-size: 4.5rem;
+  color: var(--black);
+  line-height: 1.5;
+}
+
+.home .content p {
+  font-size: 1rem;
+  color: var(--light-color);
+  line-height: 1.5;
+  padding: 1rem 0;
+}
+
+/* media queries */
+/* for max-width 991px */
+@media (max-width:991px) {
+  html {
+    size: 55%;
+  }
+  .hospital-header {
+    padding: 2rem;
+  }
+}
+
+/* for max-width 768px */
+@media (max-width:768px) {
+  #menu-button{
+    display: initial;
+  }
+
+  .hospital-header .navbar {
+    position: absolute;
+    top: 115%;
+    right: 2rem;
+    border-radius: 0.5rem;
+    border: green;
+    box-shadow: lightblue;
+    width: 30rem;
+    background: #fff;
+    transform: scale(0);
+    opacity: 0;
+    transform-origin: top right;
+    transition: none;
+  }
+
+    .hospital-header .navbar.active {
+      transform: scale(1);
+      opacity: 1;
+      transition: 0.2s ease-in-out;
+    }
+
+  .hospital-header .navbar a{
+    font-size: 2rem;
+    margin: 2rem;
+    display: block;
+  }
+}
+
+
+/* for max-width 450px */
+@media (max-width:450px) {
+  html {
+    size: 50%;
+  }
+  .hospital-header {
+    padding: 2rem;
+  }
+}
